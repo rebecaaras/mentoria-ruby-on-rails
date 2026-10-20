@@ -1,13 +1,21 @@
 # Mentoria - Ruby on Rails
 
+## Encontros e temas
+
+Fundamentos de Ruby
+
+* [05-10-2026](#05-10-2026) Objetos em ruby e separação de responsabilidades
+* [11-10-2026](#11-10-2026) Princípios de Arquitetura MVC
+* [18-10-2026](#18-10-2026) Princípios de OOP
+
 ## Fundamentos Ruby
-**05-10-2026**
+### 05-10-2026
 
 - Orientação a objetos, separação de responsabilidades, ARGV, performance de hashes(dicts), lambdas para armazenar trechos de código, `binding.irb` para debugar, `.send` para chamar métodos de forma dinâmica, `.call`. 
 
 Exercícios: [criar uma calculadora considerando que ela será um produto](/calculator).
 
-**11-10-2026**
+### 11-10-2026
 
 - Quase tudo no Ruby é um objeto. 
 - `self` retorna o objeto ou a classe dependendo do contexto em que é chamado. Se chamado dentro de um método de classe, retorna a classe. Se chamado dentro de um método de instância, retorna a instância (ojeto) da classe.
@@ -16,7 +24,7 @@ Exercícios: [criar uma calculadora considerando que ela será um produto](/calc
 
 Exercício: recriar métodos básicos do Active Record `create`, `find`, `destroy` no projeto [parking-lot](parking-lot/).
 
-**18-10-2026**
+### 18-10-2026
 
 As bases de programação baseada em objetos:
 
