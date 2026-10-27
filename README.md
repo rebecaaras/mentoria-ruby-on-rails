@@ -6,7 +6,8 @@ Fundamentos de Ruby
 
 * [05-10-2026](#05-10-2026) Objetos em ruby e separação de responsabilidades
 * [11-10-2026](#11-10-2026) Princípios de Arquitetura MVC
-* [18-10-2026](#18-10-2026) Princípios de OOP
+* [18-10-2026](#18-10-2026) Princípios de OOP - encapsulamento, abstração e herança
+* [26-10-2026](#26-10-2026) Princípios de OOP - herança e acoplamento
 
 ## Fundamentos Ruby
 ### 05-10-2026
@@ -32,4 +33,12 @@ As bases de programação baseada em objetos:
 
 [__herança__](oop-foundations/inheritance.rb): atualmente esse ponto é um pouco controverso porque geralmente leva a um forte acoplamento dos objetos, o que dificulta atualizações. É preferível utilizar outras estratégias como módulos. Ressalvas feitas, o princípio da herança diz que uma classe pode herdar os métodos da classe pai e, quando necessário, os métodos da subclasse podem sobrescrever (_overrride_) os métodos da classe pai. 
 
-[__encapsulation__](oop-foundations/encapsulation): cada classe esconde o seu funcionamento interno atrás de métodos com um nome conveniente, o que facilita o raciocínio e esconde a complexidade, que será vista apenas quando necessário. Uma classe pode ter métodos privados, apenas disponíveis para serem utilizados dentro da casse, desse modo a classe é modificada pelo 'mundo externo' apenas de forma controlada. No exemplo dado, o modelo do carro é definido na inicializaçao do objeto e só. Acessar a classificação desse objeto é possível apenas por meio do método `specification`. Apenas o atributo `year` pode ser modificado a partir de um contexto externo, e apenas através do método `upgrade`. Esse esconder e proibir dificulta que novos bugs sejam gerados e facilita na hora de descobrir de onde vêm os erros. Observe que `model` e `year` podem ser lidos apenas por métodos dentro da classe também.
+[__encapsulamento__](oop-foundations/encapsulation): cada classe esconde o seu funcionamento interno atrás de métodos com um nome conveniente, o que facilita o raciocínio e esconde a complexidade, que será vista apenas quando necessário. Uma classe pode ter métodos privados, apenas disponíveis para serem utilizados dentro da casse, desse modo a classe é modificada pelo 'mundo externo' apenas de forma controlada. No exemplo dado, o modelo do carro é definido na inicializaçao do objeto e só. Acessar a classificação desse objeto é possível apenas por meio do método `specification`. Apenas o atributo `year` pode ser modificado a partir de um contexto externo, e apenas através do método `upgrade`. Esse esconder e proibir dificulta que novos bugs sejam gerados e facilita na hora de descobrir de onde vêm os erros. Observe que `model` e `year` podem ser lidos apenas por métodos dentro da classe também.
+
+### 26-10-2026
+
+[__herança e desacoplamento__](oop-foundations/decoupling) Ainda sobre o princípio ga __herança__ há o problema do acoplamento, brevemente discutido na reunião anterior. Trata-se porém de um problema tão dramático para a manutenção e expansão de sistemas que atualmente já é, em algumas comunidades, desconsiderado como um dos princípios de programação orientada a objetos. Bom, iniciamos a ver como resolver o problema do acoplamento com diferentes estratégias: _composição_ e _composição com injeção de dependências_. Essas estratégias fazem parte dos princípios SOLID (dos quais ainda sei pouco ou nada :D )
+
+Também adicionamos a funcionalidade de persistência, um banco rudimentar, ao sistema _parking lot_.
+
+Exercícios: reescrever o sistema parking lot de modo a remover o acoplamento entre a classe car e a funcionalidade de persistência no banco.
