@@ -1,4 +1,5 @@
 class Car
+  attr_reader :model, :year
   @@cars = []
 
   def initialize(model, year)
@@ -23,6 +24,7 @@ class Car
   # deletes first result
   def self.delete(model = nil, year = nil)
     return unless model || year
+
     self.find(model, year).delete
   end
 
@@ -30,12 +32,10 @@ class Car
     @@cars.delete(self)
   end
 
-  # how should I use both arguments as optional, but at least one should be given?
-  # what are other ways to implement this same function ?
-  # how do I deal with trailing filters?
   def self.find_all(model = nil, year = nil)
     cars = @@cars.dup
     return cars unless model || year
+
     cars = cars.filter { |car| car.model == model } if model
     cars = cars.filter { |car| car.year == year} if year
     cars
@@ -49,8 +49,26 @@ class Car
   def full_name
     "#{model} - #{year}"
   end
-  
-  private
-  attr_accessor :model, :year
+
+  def self.persist
+    File.open("saida.txt", 'w') do |file|
+      @@cars.each do |car|
+        file.puts car.full_name
+      end
+    end
+  end
+
+  def self.load
+    File.open("saida.txt", "r") do |file|
+      file.each_line do |line|
+        parse_line(line)
+      end
+    end
+  end
+
+  def self.parse_line(line)
+    model, year = line.split(' - ')
+    create(model, year.to_i)
+  end
+
 end
-binding.irb
